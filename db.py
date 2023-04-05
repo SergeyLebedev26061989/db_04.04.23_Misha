@@ -41,3 +41,10 @@ class DB:
 
 add = DB().insert_client('Петр', 'Петров')
 add1 = DB().insert_client('Иван', 'Иванов')
+
+look_db = DB().look_db()
+id_people = []
+for i in look_db:
+    id_people.append(i[0])
+    time.sleep(0.2)
+print(id_people)
