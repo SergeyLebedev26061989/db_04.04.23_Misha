@@ -34,6 +34,21 @@ class DB:
                 print(f'клиент {name} {surname} успешно добавлен')
             except OperationalError as e:
                 print(f'Произошла ошибка при добавлении клиента {e}')
+                
+    def look_db(self):
+        with self.connect.cursor() as cur:
+            try:
+                cur.execute("""
+                    SELECT id, name, surname FROM folders
+                    """)
+                self.connect.commit()
+                return cur.fetchall()
+            except OperationalError as e:
+                print(f'Произошла {e} ошибка')
+
+    def read_db(self, path):
+        responce = requests.get(path)
+
 
     def close_connect(self):
         self.close_connect()
