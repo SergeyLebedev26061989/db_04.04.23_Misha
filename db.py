@@ -59,6 +59,6 @@ add1 = DB().insert_client('Иван', 'Иванов')
 
 look_db = DB().look_db()
 for id in look_db:
-    id_look = DB().read_db(f'https://www.google.com/{id[0]}')
+    resp = requests.get(f'http://www.google.com/{id[0]}')
     time.sleep(0.2)
-    print(id_look)
+    print(resp)
